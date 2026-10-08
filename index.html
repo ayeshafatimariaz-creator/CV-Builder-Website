@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional CV Builder</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;500;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row g-3">
+            <!-- Form Section (Larger Area) -->
+            <div class="col-12 col-md-6 col-lg-5 form-section p-3 p-md-4">
+                <h1 class="text-center mb-4"><i class="fas fa-file-alt"></i> CV Builder</h1>
+                
+                <!-- Template Selection -->
+                <div class="mb-4">
+                    <label for="template-select" class="form-label fw-bold">Choose CV Template</label>
+                    <select class="form-select" id="template-select">
+                        <option value="template-modern">Modern</option>
+                        <option value="template-classic">Classic</option>
+                        <option value="template-minimal">Minimal</option>
+                    </select>
+                </div>
+
+                <!-- Theme / Color Selection -->
+                <fieldset class="mb-4">
+                    <legend class="fw-bold">Theme & Colors</legend>
+                    <p class="small text-muted">Choose a soft background color for your CV. Default is Soft Blue.</p>
+                    <div class="d-flex gap-2 align-items-center" id="theme-options">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="cvTheme" id="theme-default" value="theme-default" checked>
+                            <label class="form-check-label" for="theme-default">Soft Blue</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="cvTheme" id="theme-cream" value="theme-cream">
+                            <label class="form-check-label" for="theme-cream">Warm Cream</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="cvTheme" id="theme-mint" value="theme-mint">
+                            <label class="form-check-label" for="theme-mint">Gentle Mint</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="cvTheme" id="theme-lavender" value="theme-lavender">
+                            <label class="form-check-label" for="theme-lavender">Soft Lavender</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="cvTheme" id="theme-slate" value="theme-slate">
+                            <label class="form-check-label" for="theme-slate">Light Slate</label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <form id="cv-form">
+                    <!-- Personal Details -->
+                    <fieldset class="mb-4">
+                        <legend>Personal Details</legend>
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Full Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="jobTitle" class="form-label">Job Title</label>
+                            <input type="text" class="form-control" id="jobTitle" name="jobTitle" placeholder="job">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="phone" class="form-label">Phone</label>
+                                <input type="tel" class="form-control" id="phone" name="phone" placeholder="+-- ----------">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="@gmail.com">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Address</label>
+                            <input type="text" class="form-control" id="address" name="address" placeholder="Address...">
+                        </div>
+                        <div class="mb-3">
+                            <label for="profilePicture" class="form-label">Profile Picture</label>
+                            <input type="file" class="form-control" id="profilePicture" name="profilePicture" accept="image/*">
+                            <small class="form-text text-muted">Use a square image (JPG, PNG, etc.)</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="summary" class="form-label">Professional Summary</label>
+                            <textarea class="form-control" id="summary" name="summary" rows="4" placeholder="A brief, compelling summary of your skills and experience."></textarea>
+                        </div>
+                    </fieldset>
+
+                    <!-- Experience Section -->
+                    <fieldset class="mb-4">
+                        <legend>Experience</legend>
+                        <div id="experience-container">
+                            <!-- Experience entries will be added here by JS -->
+                        </div>
+                        <button type="button" class="btn btn-secondary btn-sm" id="add-experience-btn">
+                            <i class="fas fa-plus"></i> Add More Experience
+                        </button>
+                    </fieldset>
+
+                    <!-- Education Section -->
+                    <fieldset class="mb-4">
+                        <legend>Education</legend>
+                        <div id="education-container">
+                             <!-- Education entries will be added here by JS -->
+                        </div>
+                        <button type="button" class="btn btn-secondary btn-sm" id="add-education-btn">
+                            <i class="fas fa-plus"></i> Add More Education
+                        </button>
+                    </fieldset>
+
+                     <!-- Skills Section -->
+                    <fieldset class="mb-4">
+                        <legend>Skills</legend>
+                        <div class="mb-3">
+                            <label for="skills" class="form-label">List your skills (comma-separated)</label>
+                            <input type="text" class="form-control" id="skills" name="skills" placeholder="Skills...">
+                        </div>
+                    </fieldset>
+
+                    <!-- Action Buttons -->
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button type="button" class="btn btn-danger" id="reset-btn"><i class="fas fa-redo"></i> Reset</button>
+                        <button type="button" class="btn btn-primary" id="download-pdf-btn"><i class="fas fa-download"></i> Download PDF</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Preview Section -->
+            <div class="col-12 col-md-6 col-lg-7 preview-section p-3 p-md-4">
+                <div id="cv-preview" class="template-modern">
+                    <!-- CV content will be dynamically generated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jsPDF and html2canvas Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

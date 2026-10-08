@@ -1,0 +1,458 @@
+/* --- General Page & Form Styling --- */
+body {
+    background-color: #f4f7f6;
+    font-family: 'Lato', sans-serif;
+}
+
+.form-section {
+    background-color: #ffffff;
+    border-right: 1px solid #dee2e6;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+@media (max-width: 767.98px) {
+    .form-section {
+        border-right: none;
+        border-bottom: 1px solid #dee2e6;
+        max-height: auto;
+    }
+}
+
+.preview-section {
+    background-color: #e9ecef;
+    padding: 2rem !important;
+    display: flex;
+    justify-content: center; /* center the CV preview inside the column */
+    align-items: flex-start;
+    overflow: auto; /* ensure column can scroll if needed */
+}
+
+@media (max-width: 767.98px) {
+    .preview-section {
+        padding: 1rem !important;
+    }
+    
+    #cv-preview {
+        width: 100%;
+        min-height: auto;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    #cv-preview {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+    
+    .template-modern .header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .template-modern .header h2 {
+        font-size: 1rem;
+    }
+}
+
+fieldset {
+    border: 1px solid #dee2e6;
+    padding: 1.5rem;
+    border-radius: 0.375rem;
+}
+
+@media (max-width: 575.98px) {
+    fieldset {
+        padding: 1rem;
+    }
+}
+
+legend {
+    font-size: 1.25rem;
+    font-weight: 700;
+    width: auto;
+    padding: 0 0.5rem;
+    color: #0d6efd;
+}
+
+/* --- CV Preview Area --- */
+#cv-preview {
+    width: 100%;
+    max-width: 210mm; /* Keep A4 max width for higher-resolution preview */
+    min-height: 297mm; /* Keeps A4 aspect by default */
+    padding: 20mm;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    overflow: auto; /* Allow scrolling inside preview column if content is tall */
+    max-height: calc(100vh - 4rem);
+}
+
+/* --- Theme Backgrounds (soft, professional palettes) --- */
+#cv-preview.theme-default { background-color: #f0f7ff; }
+#cv-preview.theme-cream { background-color: #fffaf0; }
+#cv-preview.theme-mint { background-color: #f0fff4; }
+#cv-preview.theme-lavender { background-color: #f7f2ff; }
+#cv-preview.theme-slate { background-color: #f5f7fa; }
+
+/* Small swatches next to labels in the form */
+.form-check-label::before {
+    content: '';
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
+    border-radius: 0.25rem;
+    vertical-align: -0.125rem;
+}
+.form-check-input#theme-default + .form-check-label::before,
+.form-check-input#theme-default:checked + .form-check-label::before { background: #f0f7ff; }
+.form-check-input#theme-cream + .form-check-label::before,
+.form-check-input#theme-cream:checked + .form-check-label::before { background: #fffaf0; }
+.form-check-input#theme-mint + .form-check-label::before,
+.form-check-input#theme-mint:checked + .form-check-label::before { background: #f0fff4; }
+.form-check-input#theme-lavender + .form-check-label::before,
+.form-check-input#theme-lavender:checked + .form-check-label::before { background: #f7f2ff; }
+.form-check-input#theme-slate + .form-check-label::before,
+.form-check-input#theme-slate:checked + .form-check-label::before { background: #f5f7fa; }
+
+/* --- Helper Classes for CV Content --- */
+.text-center { text-align: center; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 1rem; }
+.mt-3 { margin-top: 1rem; }
+.d-flex { display: flex; }
+.justify-content-between { justify-content: space-between; }
+.align-items-center { align-items: center; }
+.w-100 { width: 100%; }
+.fw-bold { font-weight: bold; }
+.fw-light { font-weight: 300; }
+
+/* --- TEMPLATE 1: MODERN --- */
+#cv-preview.template-modern {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+}
+.template-modern .header {
+    text-align: center;
+    border-bottom: 3px solid #0d6efd;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+.template-modern .header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: #0d6efd;
+}
+.template-modern .header h2 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #555;
+    margin: 0.2rem 0;
+}
+.template-modern .contact-info {
+    font-size: 0.9rem;
+}
+.template-modern .section-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #0d6efd;
+    border-bottom: 2px solid #0d6efd;
+    padding-bottom: 0.2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+.template-modern .experience-item, .template-modern .education-item {
+    margin-bottom: 1rem;
+}
+.template-modern .item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.template-modern .item-header h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+}
+.template-modern .item-header p {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #666;
+    margin: 0;
+}
+.template-modern .item-header .date {
+    font-size: 0.9rem;
+    color: #0d6efd;
+    font-weight: 500;
+}
+.template-modern .summary {
+    text-align: justify;
+}
+.template-modern .skills-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.template-modern .skills-list li {
+    background-color: #e9ecef;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+}
+
+/* --- TEMPLATE 2: CLASSIC --- */
+#cv-preview.template-classic {
+    font-family: 'Georgia', serif;
+    color: #000;
+    line-height: 1.6;
+}
+.template-classic .header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.template-classic .header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 2px;
+}
+.template-classic .header h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-style: italic;
+    color: #555;
+    margin: 0.5rem 0;
+}
+.template-classic .contact-info {
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+.template-classic .section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-top: 1px solid #ccc;
+    padding-top: 1rem;
+}
+.template-classic .experience-item, .template-classic .education-item {
+    margin-bottom: 1.5rem;
+}
+.template-classic .item-header h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0;
+}
+.template-classic .item-header p {
+    font-size: 1.1rem;
+    font-style: italic;
+    margin: 0;
+}
+.template-classic .item-header .date {
+    float: right;
+    font-weight: bold;
+}
+.template-classic .summary {
+    text-align: justify;
+    font-size: 1.1rem;
+}
+.template-classic .skills-list {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+.template-classic .skills-list li {
+    margin-bottom: 0.5rem;
+}
+
+/* --- TEMPLATE 3: MINIMAL --- */
+#cv-preview.template-minimal {
+    font-family: 'Montserrat', sans-serif;
+    color: #212529;
+}
+.template-minimal .header {
+    margin-bottom: 2rem;
+}
+.template-minimal .header h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+}
+.template-minimal .header h2 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #6c757d;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.template-minimal .contact-info {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+}
+.template-minimal .section-title {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #dee2e6;
+}
+.template-minimal .experience-item, .template-minimal .education-item {
+    margin-bottom: 2rem;
+}
+.template-minimal .item-header h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+}
+.template-minimal .item-header p {
+    font-size: 1rem;
+    color: #6c757d;
+    margin: 0.2rem 0;
+}
+.template-minimal .item-header .date {
+    font-size: 0.9rem;
+    color: #212529;
+    margin-top: 0.3rem;
+}
+.template-minimal .summary {
+    line-height: 1.7;
+}
+.template-minimal .skills-list {
+    list-style: none;
+    padding: 0;
+    column-count: 2; /* Creates a two-column list */
+}
+.template-minimal .skills-list li {
+    margin-bottom: 0.5rem;
+    break-inside: avoid-column; /* Prevents list items from breaking across columns */
+}
+
+/* ======================================================
+   GENERAL CV ENHANCEMENTS
+   ====================================================== */
+
+#cv-preview {
+    border-radius: 6px;
+    background: white;
+    box-shadow: 0 0 25px rgba(0,0,0,0.15);
+    padding: 25mm;
+}
+
+/* smoother rendering for text and lines */
+#cv-preview * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Global heading spacing */
+#cv-preview h1,
+#cv-preview h2,
+#cv-preview h3 {
+    margin-bottom: 0.4rem;
+}
+
+/* Subtle divider between sections */
+.cv-divider {
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    margin: 20px 0;
+}
+
+header.cv-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header.cv-header img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+}
+
+header.cv-header h1 {
+    font-size: 2.4rem !important;
+    margin: 0;
+    font-weight: 700;
+}
+
+header.cv-header h2 {
+    font-size: 1.1rem;
+    color: #6c757d;
+    margin-bottom: .5rem;
+}
+
+header.cv-header .contact-info {
+    font-size: 0.9rem;
+    color: #444;
+}
+.section-title {
+    font-size: 1.2rem !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #0d6efd;
+    margin-bottom: 1rem;
+}
+.experience-item,
+.education-item {
+    padding: 12px 0;
+    margin-bottom: 15px;
+}
+
+.experience-item p,
+.education-item p {
+    margin: 4px 0;
+}
+
+.item-header h3 {
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+.item-header p {
+    font-size: .9rem;
+    color: #666;
+}
+
+.item-header .date {
+    font-size: .85rem;
+    color: #0d6efd;
+    font-weight: 600;
+}
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none !important;
+    gap: 10px;
+    padding-left: 0 !important;
+}
+
+.skills-list li {
+    background: #e8eff8;
+    padding: 6px 12px;
+    font-size: .85rem;
+    border-radius: 20px;
+    border: 1px solid rgba(13,110,253,0.25);
+    font-weight: 500;
+}
+#cv-preview.theme-default { background: #eef5ff; }
+#cv-preview.theme-cream { background: #fff8ea; }
+#cv-preview.theme-mint { background: #eaffe6; }
+#cv-preview.theme-lavender { background: #f4eaff; }
+#cv-preview.theme-slate { background: #f3f5f7; }
+
